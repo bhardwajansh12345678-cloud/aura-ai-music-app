@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Search</title>
+</head>
+<body>
+    <h1>Testing Search Functionality</h1>
+    <button onclick="testSearch()">Test Search</button>
+    <div id="results"></div>
+    
+    <script>
+    async function testSearch() {
+        try {
+            const itunesUrl = 'https://itunes.apple.com/search?term=arijit&entity=song&limit=5';
+            const proxyUrl = `http://localhost:5500/proxy?url=${encodeURIComponent(itunesUrl)}`;
+            console.log('Testing URL:', proxyUrl);
+            
+            const res = await fetch(proxyUrl);
+            const data = await res.json();
+            console.log('Search results:', data);
+            
+            document.getElementById('results').innerHTML = `
+                <h3>Found ${data.resultCount} results:</h3>
+                <pre>${JSON.stringify(data.results.slice(0, 2), null, 2)}</pre>
+            `;
+        } catch (e) {
+            console.error('Test failed:', e);
+            document.getElementById('results').innerHTML = `<p style="color: red;">Error: ${e.message}</p>`;
+        }
+    }
+    </script>
+</body>
+</html>

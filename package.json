@@ -1,0 +1,21 @@
+{
+  "name": "aura-music-app",
+  "version": "1.0.0",
+  "description": "AI-Powered Music Discovery App",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.3.0",
+    "@capacitor/cli": "^8.3.0",
+    "@capacitor/core": "^8.3.0",
+    "axios": "^1.14.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

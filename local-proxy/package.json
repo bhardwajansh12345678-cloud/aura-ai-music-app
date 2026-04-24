@@ -1,0 +1,15 @@
+{
+  "name": "aura-local-proxy",
+  "version": "1.0.0",
+  "description": "Local CORS proxy for AuraAI project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7"
+  }
+}
