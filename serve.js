@@ -4,7 +4,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5500; 
+const PORT = process.env.PORT || 5500; 
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, '.')));
@@ -34,4 +34,4 @@ app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(5500, () => console.log(`🎵 Aura AI Server LIVE at http://localhost:${5500}`));
+app.listen(PORT, () => console.log(`🎵 Aura AI Server LIVE on port ${PORT}`));

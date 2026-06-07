@@ -3,18 +3,15 @@ const API = {
 
     saavn: {
         mirrors: [
-            'https://jiosaavn-api-gamma.vercel.app',
-            'https://jio-saavn-api.vercel.app',
-            'https://saavn.me',
-            'https://sumit.is-a.dev/jiosaavn-api'
+            'https://saavn.sumit.co'
         ],
         searchPath: '/api/search/songs'
     },
     ytmusic: {
         mirrors: [
+            'https://pipedapi.lunar.icu',
             'https://pipedapi.kavin.rocks',
-            'https://pipedapi.smnz.de',
-            'https://pipedapi.lunar.icu'
+            'https://pipedapi.smnz.de'
         ],
         searchPath: '/search'
     }
@@ -108,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const proxy = (url) => {
         if (!url) return '';
         // If it's already a proxied URL or a local blob, don't proxy again
-        if (url.includes('localhost:5500/proxy') || url.startsWith('blob:')) return url;
-        return `http://localhost:5500/proxy?url=${encodeURIComponent(url)}`;
+        if (url.includes('/proxy?url=') || url.startsWith('blob:')) return url;
+        return `/proxy?url=${encodeURIComponent(url)}`;
     };
 
     // 🎧 LOAD & PLAY TRACK
